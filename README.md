@@ -2,7 +2,7 @@
 
 custom altair theme 
 
-Comes with a dark mode too  :smiley:
+Comes with a dark mode too  :new_moon: :milky_way:
 
 ## Installation
 
