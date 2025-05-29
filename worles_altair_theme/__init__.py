@@ -29,31 +29,31 @@ def worles() -> alt.theme.ThemeConfig:
             'title':{
                 'anchor':'start',
                 'fontSize':20,
-                'font':"Roboto",
+                'font':"Asap",
                 'subtitleFontSize':13
             },
             "axis":{
-                'titleFont':"Asap Condensed",
+                'titleFont':"Asap",
                 'titleFontSize':14,
                 'labelFontSize':12,
-                'labelFont':'Asap Condensed'
+                'labelFont':'Asap'
 
             },
             'text':{
-                'font':"Roboto",
+                'font':"Asap",
                 'fontSize':14
             },
             'range':{'category':categoryColors},
             'legend':{'orient':'bottom',
-                      'titleFont':"Asap Condensed", 'titleFontSize':14,
-                      'labelFont':'Asap Condensed', 'labelFontSize':12
+                      'titleFont':"Asap", 'titleFontSize':14,
+                      'labelFont':'Asap', 'labelFontSize':12
 
                       },
             'tooltip': {
                 # Doesn't seem to be working
-                'titleFont':"Asap Condensed", 
-                'labelFont':'Asap Condensed', 
-                'font':'Asap Condensed',
+                'titleFont':"Asap", 
+                'labelFont':'Asap', 
+                'font':'Asap',
                 #'labelFontSize':12
             }
         }
@@ -94,10 +94,10 @@ def darkmode_worles() -> alt.theme.ThemeConfig:
                 'subtitleColor':'white'
             },
             "axis":{
-                'titleFont':"Asap Condensed",
+                'titleFont':"Asap",
                 'titleFontSize':14,
                 'labelFontSize':12,
-                'labelFont':'Asap Condensed',
+                'labelFont':'Asap',
                 'labelColor':'white',
                 'titleColor':'white',
 
@@ -110,8 +110,8 @@ def darkmode_worles() -> alt.theme.ThemeConfig:
             'range':{'category':categoryColors},
             'legend':{'orient':'bottom', 'textColor':'white',
                       'labelColor':'white', 'titleColor':'white',
-                      'titleFont':"Asap Condensed", 'titleFontSize':14,
-                      'labelFont':'Asap Condensed', 'labelFontSize':12
+                      'titleFont':"Asap", 'titleFontSize':14,
+                      'labelFont':'Asap', 'labelFontSize':12
                       }
         }
     }
