@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.13.11"
+__generated_with = "0.19.6"
 app = marimo.App(width="columns")
 
 with app.setup:
@@ -9,6 +9,7 @@ with app.setup:
     import polars as pl
     import vega_datasets
     import altair as alt
+    import pyarrow # needs to be installed for conversin from pandas to polars
 
 
 @app.cell
@@ -17,29 +18,30 @@ def _():
     return (data,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _():
-    return
+    viewMode = mo.ui.radio(options=['Light Mode', 'Dark Mode', 'Minimal'], value='Light Mode')
+    viewMode
+    return (viewMode,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(data):
-    data
+    mo.accordion({'Click here to see the cars dataset':data})
     return
 
 
-@app.cell
-def _():
-    from worles_altair_theme import worles, darkmode_worles#, catColors
-    alt.theme.enable('darkmode_worles')
+@app.cell(hide_code=True)
+def _(viewMode):
+    from worles_altair_theme import worles, darkmode_worles, worles_minimal
+    if viewMode.value=='Light Mode':
+        alt.theme.enable('worles')
+    elif viewMode.value=='Dark Mode':
+        alt.theme.enable("darkmode_worles")
+    else:
+        alt.theme.enable("worles_minimal")
     a=2
     return (a,)
-
-
-@app.cell
-def _():
-    alt.theme.get()
-    return
 
 
 @app.cell
@@ -200,7 +202,7 @@ def _():
     return
 
 
-@app.cell(column=1)
+@app.cell
 def _():
     return
 
