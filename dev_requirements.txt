@@ -2,3 +2,4 @@ altair
 polars
 marimo
 vega-datasets
+pyarrow
