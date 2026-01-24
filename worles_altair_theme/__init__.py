@@ -1,33 +1,42 @@
 import altair as alt
 
+MARK_COLOR = '#202C59'
+DARK_MARK_COLOR = '#3C54AC'
+
+CATEGORY_COLORS = [
+    MARK_COLOR,
+    '#FEA82F',
+    '#56876D',
+    '#F26157',
+    '#8B85C1',
+    '#F19C79',
+]
+
+DARK_CATEGORY_COLORS = [
+    DARK_MARK_COLOR,
+    '#FEA82F',
+    '#56876D',
+    '#F26157',
+    '#8B85C1',
+    '#F19C79',
+]
+
 @alt.theme.register("worles", enable=True)
 def worles() -> alt.theme.ThemeConfig:
-    markColor = '#202C59'
-    backgroundColor= '#F8F8F8'# '#FAFAFA'
-
-    categoryColors = [
-        markColor,
-        '#FEA82F',
-        '#56876D',
-        '#F26157',
-        '#8B85C1',
-        '#F19C79',
-    ]
-#    cColors = ["a82431","f5a6e6","8d80c7","2559a7","ff934f","6cae75",'49848E','60B2E5']
-#    cColors = ['#'+c for c in cColors]
+    backgroundColor = '#F8F8F8'
 
     return {
         "config": {
             "view": {"continuousWidth": 300, "continuousHeight": 300},
             "mark": {
-                "color": markColor, 
+                "color": MARK_COLOR, 
                 #"fill": markColor ,  
             },
             "legend":{'orient':'bottom'},
             'group':{'fill':backgroundColor},
             'background':backgroundColor,
             'title':{
-                'anchor':'start',
+                'anchor':'middle',
                 'fontSize':20,
                 'font':"Asap",
                 'subtitleFontSize':13
@@ -43,7 +52,7 @@ def worles() -> alt.theme.ThemeConfig:
                 'font':"Asap",
                 'fontSize':14
             },
-            'range':{'category':categoryColors},
+            'range':{'category':CATEGORY_COLORS},
             'legend':{'orient':'bottom',
                       'titleFont':"Asap", 'titleFontSize':14,
                       'labelFont':'Asap', 'labelFontSize':12
@@ -59,34 +68,69 @@ def worles() -> alt.theme.ThemeConfig:
         }
     }
 
-@alt.theme.register("darkmode_worles", enable=True)
-def darkmode_worles() -> alt.theme.ThemeConfig:
-    markColor = '#3C54AC'
-    backgroundColor= 'black'# '#FAFAFA'
+@alt.theme.register("worles_minimal", enable=True)
+def worles_minimal() -> alt.theme.ThemeConfig:
 
-    categoryColors = [
-        markColor,
-        '#FEA82F',
-        '#56876D',
-        '#F26157',
-        '#8B85C1',
-        '#F19C79',
-    ]
-#    cColors = ["a82431","f5a6e6","8d80c7","2559a7","ff934f","6cae75",'49848E','60B2E5']
-#    cColors = ['#'+c for c in cColors]
+    backgroundColor= '#F8F8F8'
+
 
     return {
         "config": {
             "view": {"continuousWidth": 300, "continuousHeight": 300},
             "mark": {
-                "color": markColor, 
-                #"fill": markColor ,  
+                "color": MARK_COLOR,
             },
             "legend":{'orient':'bottom'},
             'group':{'fill':backgroundColor},
             'background':backgroundColor,
             'title':{
-                'anchor':'start',
+                'anchor':'middle',
+                'fontSize':20,
+                'font':"Asap",
+                'subtitleFontSize':13
+            },
+            "axis":{
+                'titleFont':"Asap",
+                'titleFontSize':14,
+                'labelFontSize':12,
+                'labelFont':'Asap'
+            },
+            "axisY":{
+                'grid': False
+            },
+            'text':{
+                'font':"Asap",
+                'fontSize':14
+            },
+            'range':{'category':CATEGORY_COLORS},
+            'legend':{'orient':'bottom',
+                      'titleFont':"Asap", 'titleFontSize':14,
+                      'labelFont':'Asap', 'labelFontSize':12
+                      },
+            'tooltip': {
+                'titleFont':"Asap",
+                'labelFont':'Asap',
+                'font':'Asap',
+            }
+        }
+    }
+
+@alt.theme.register("darkmode_worles", enable=True)
+def darkmode_worles() -> alt.theme.ThemeConfig:
+
+    backgroundColor= 'black'# '#FAFAFA'
+
+    return {
+        "config": {
+            "view": {"continuousWidth": 300, "continuousHeight": 300},
+            "mark": {
+                "color": DARK_MARK_COLOR, 
+            },
+            "legend":{'orient':'bottom'},
+            'group':{'fill':backgroundColor},
+            'background':backgroundColor,
+            'title':{
+                'anchor':'middle',
                 'fontSize':20,
                 'font':"Roboto",
                 'subtitleFontSize':13,
@@ -107,11 +151,16 @@ def darkmode_worles() -> alt.theme.ThemeConfig:
                 'fontSize':14,
                 'fill':'white'
             },
-            'range':{'category':categoryColors},
+            'range':{'category':DARK_CATEGORY_COLORS},
             'legend':{'orient':'bottom', 'textColor':'white',
                       'labelColor':'white', 'titleColor':'white',
                       'titleFont':"Asap", 'titleFontSize':14,
                       'labelFont':'Asap', 'labelFontSize':12
-                      }
+                      },
+            'tooltip': {
+                'titleFont':"Asap",
+                'labelFont':'Asap',
+                'font':'Asap',
+            }
         }
     }
